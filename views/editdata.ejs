@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container {
+        box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    }
+
+    .heading {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 38px;
+    }
+</style>
+
+<body>
+    <div class="container"
+        style="width: 700px; margin: 0px auto; background-color: rgb(234, 236, 236); border-radius: 10px; padding: 20px; margin-top: 50px;">
+        <div style="text-align: center;">
+            <h1 style="color: rgb(8, 85, 124);" class="heading">Edit To do app</h1>
+            <br>
+            <form action="/editdata/<%=data.id%>" method="post">
+                <table align="center" border="1">
+                    <!-- <tr><input type="number" name="id" id="" placeholder="Enter Id..."
+                        style="width: 400px; height: 40px;  border: none; border-radius: 5px; font-size: 20px; box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset; padding-left: 15px; padding-top: 5px; margin-bottom: 10px;         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"></textarea>
+                </tr> -->
+                    <tr><input type="text" name="title" id="" placeholder="Enter Title..."
+                            style="width: 400px; height: 40px;  border: none; border-radius: 5px; font-size: 20px; box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset; padding-left: 15px; padding-top: 5px; margin-bottom: 10px;         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
+                            value=<%=data.title%> ></textarea>
+                    </tr>
+
+                    <tr><input type="text" name="task" id="" placeholder="Enter Task..."
+                            style="width: 400px; height: 60px; border: none; border-radius: 5px; font-size: 20px; box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset; padding-left: 15px; padding-top: 5px;"
+                            value=<%=data.task%> />
+                    </tr>
+
+                    <br><br>
+                    <tr><button
+                            style="background-color: black; font-size: 20px;
+            color: white; padding: 10px 12px; border: none; border-radius: 5px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Edit
+                            Task</button></tr>
+                </table>
+            </form>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

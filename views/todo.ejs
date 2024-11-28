@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container {
+        box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    }
+
+    .heading {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 38px;
+    }
+
+    .container-fluid {
+        width: 1300px;
+        margin: 0px auto;
+    }
+
+    .col-3 {
+        width: 50%;
+        margin-right: 10px;
+        margin-bottom: 20px;
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0px auto;
+        justify-content: center;
+
+    }
+
+    .card-title {
+        font-size: 24px;
+        margin-left: 10px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    .card-task {
+        font-size: 20px;
+        margin-left: 10px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    .card-wrap {
+        box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+        padding: 5px;
+        height: 170px;
+    }
+
+    .btn-wrap {
+        display: flex;
+        justify-content: center;
+    }
+
+    .edit {
+        background-color: green;
+        color: white;
+        padding: 7px 9px;
+        font-size: 18px;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-left: 7px;
+        font-weight: 600;
+    }
+
+    .delete {
+        background-color: red;
+        color: white;
+        padding: 7px 9px;
+        font-size: 18px;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-left: 7px;
+        font-weight: 600;
+
+
+    }
+
+    .col-6 {
+        width: 50%;
+    }
+</style>
+
+<body>
+    <div class="container"
+        style="width: 700px; margin: 0px auto; background-color: rgb(234, 236, 236); border-radius: 10px; padding: 20px; margin-top: 50px;">
+        <div style="text-align: center;">
+            <h1 style="color: rgb(8, 85, 124);" class="heading">To do app</h1>
+            <br>
+            <form action="/addtask" method="post">
+                <table align="center" border="1">
+                    <tr><input type="number" name="id" id="" placeholder="Enter Id..."
+                            style="width: 400px; height: 40px;  border: none; border-radius: 5px; font-size: 20px; box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset; padding-left: 15px; padding-top: 5px; margin-bottom: 10px;         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"></textarea>
+                    </tr>
+                    <tr><input type="text" name="title" id="" placeholder="Enter Title..."
+                            style="width: 400px; height: 40px;  border: none; border-radius: 5px; font-size: 20px; box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset; padding-left: 15px; padding-top: 5px; margin-bottom: 10px;         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"></textarea>
+                    </tr>
+
+                    <tr><textarea name="task" id="" placeholder="Enter Task..."
+                            style="width: 400px; height: 60px; border: none; border-radius: 5px; font-size: 20px; box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset; padding-left: 15px; padding-top: 5px;"></textarea>
+                    </tr>
+
+                    <br><br>
+                    <tr><button
+                            style="background-color: black; font-size: 20px;
+                color: white; padding: 10px 12px; border: none; border-radius: 5px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Add
+                            Task</button></tr>
+                </table>
+            </form>
+
+        </div>
+    </div>
+    <br><br>
+    <br></br><br>
+    <div class="container-fluid">
+        <div class="row" style="justify-content: center;">
+            <div class="col-6">
+                <h1 style="color: rgb(8, 85, 124); text-align: center;" class="heading">Pending task</h1>
+
+                <% ToDo.map((val,ind)=>{
+                    %>
+                    <div class="col-3" style="margin: 0px auto; margin-bottom: 20px;">
+                        <div class="card-wrap" style="background-color: rgb(238, 240, 239); border-radius: 5px;">
+                            <p class="card-title" style="text-align: center;">
+                                <%= val.title %>
+                            </p>
+                            <span class="card-task">
+                                <%= val.task %>
+                            </span>
+                            <br><br>
+                            <div class="btn-wrap">
+                                <a href="/editdata/<%=val.id%>" style="margin-left: 0px;" class="edit">Edit</a>
+                                <a href="/deleteData/<%= ind%>" class="delete">Delete</a>
+                                <a href="/completedata/<%= ind %> " class="edit">Complete</a>
+                            </div>
+
+                        </div>
+                    </div>
+                    <% }) %>
+                        <br>
+
+
+            </div>
+            <div class="col-6">
+                <div>
+                    <h1 style="color: rgb(8, 85, 124); text-align: center;" class="heading">Completed task</h1>
+
+                    <!-- <div class="container-fluid"> -->
+                    <div class="row">
+                        <% completetask.map((val,ind)=>{
+                            %>
+                            <div class="col-3" style="margin-bottom: 20px;">
+                                <div class="card-wrap"
+                                    style="background-color: rgb(238, 240, 239); border-radius: 5px;">
+                                    <p class="card-title">
+                                        <%= val.title %>
+                                    </p>
+                                    <span class="card-task">
+                                        <%= val.task %> 
+                                    </span>
+                                    <br><br>
+                                    <div class="btn-wrap">
+                                        <a href="/deletetask/<%= ind%>" class="delete">Delete</a>
+                                        <a href="" class="edit">Completed✅</a>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <% }) %>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- </div> -->
+
+</body>
+
+</html>
